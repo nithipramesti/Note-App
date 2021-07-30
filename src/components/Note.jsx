@@ -1,60 +1,51 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/styles/note.css";
 import Axios from "axios";
 
 const Note = (props) => {
-  const [noteState, editNote] = useState({
-    noteData: [
-      {
-        note: "This is from local state",
-      },
-    ],
-  });
+  const [noteState, setNote] = useState([]);
 
-  const fetchTodo = () => {
-    Axios.get("http://localhost:2000/noteData").then((response) => {
-      editNote({
-        noteData: response.data,
-      });
-      alert(`document is fetched, note: ${noteState.noteData[0].note}`);
+  //update the local state:
+  const fetchData = () => {
+    Axios.get("http://localhost:2000/noteData/").then((response) => {
+      setNote(response.data);
     });
   };
 
   const noteChanged = (event) => {
-    // editNote({
-    //   noteData: [{ ...noteState.noteData[0], note: event.target.value }],
-    // });
     Axios.patch("http://localhost:2000/noteData/1", {
       note: event.target.value,
     }).then(() => {
-      fetchTodo();
+      fetchData();
+      //why not take the data directly from textarea?
     });
   };
 
-  const btn = () => {
-    alert(`note: ${noteState.noteData[0].note}`);
-    fetchTodo();
-  };
-
-  useEffect(() => {
-    {
-      console.log(`note: ${noteState.noteData[0].note}`);
-      alert(`useEffect - note: ${noteState.noteData[0].note}`);
-      fetchTodo();
-    }
-  }, []);
-
   const renderNote = () => {
-    return noteState.noteData[0].note;
+    return noteState[0].note;
+    //for initial data of the note, so it's not an empty note every time refresh the app
   };
+
+  //every time we reset the app, the local state will reset into the initial data
+  //in order to display the recent data of the notes, we need to fetch the data from database into the local state
+  //so the note can display the data from the local state
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="note">
-      {/* <p>STATE: {noteData.note}</p> */}
-      <textarea onChange={noteChanged} placeholder="Write note here...">
-        {renderNote()}
-      </textarea>
-      <button onClick={btn}>Check note in Local State</button>
+      {noteState.length ? (
+        <>
+          <textarea
+            onChange={noteChanged}
+            placeholder="Write note here..."
+            value={noteState[0].note}
+          />
+        </>
+      ) : (
+        <p>Loading</p>
+      )}
     </div>
   );
 };
