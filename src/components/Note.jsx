@@ -2,8 +2,20 @@ import React, { useEffect, useState } from "react";
 import "../assets/styles/note.css";
 import Axios from "axios";
 
+import { useSelector, useDispatch } from "react-redux";
+
 const Note = (props) => {
   const [noteState, setNote] = useState([]);
+
+  const globalState = useSelector((state) => state.renderNote);
+  const dispatch = useDispatch();
+
+  const changeGlobalState = () => {
+    dispatch({
+      type: "EDIT_NOTE",
+      payload: "Note is edited",
+    });
+  };
 
   //update the local state:
   const fetchData = () => {
@@ -35,17 +47,11 @@ const Note = (props) => {
 
   return (
     <div className="note">
-      {noteState.length ? (
-        <>
-          <textarea
-            onChange={noteChanged}
-            placeholder="Write note here..."
-            value={noteState[0].note}
-          />
-        </>
-      ) : (
-        <p>Loading</p>
-      )}
+      <textarea
+        onChange={noteChanged}
+        placeholder="Write note here..."
+        value={props.noteData}
+      />
     </div>
   );
 };

@@ -1,9 +1,34 @@
 {
   "noteData": [
     {
-      "note": "Tests a123",
+      "note": "This is a note",
       "color": "yellow",
       "id": 1
+    },
+    {
+      "note": "This is a second note",
+      "color": "yellow",
+      "id": 2
+    },
+    {
+      "note": "Third one!",
+      "color": "yellow",
+      "id": 3
+    },
+    {
+      "note": "Just write",
+      "color": "yellow",
+      "id": 4
+    },
+    {
+      "note": "Beautiful day",
+      "color": "yellow",
+      "id": 5
+    },
+    {
+      "note": "As long as the sun goes down",
+      "color": "yellow",
+      "id": 6
     }
   ]
 }
