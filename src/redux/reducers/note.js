@@ -1,5 +1,5 @@
 const init_state = {
-  note: "reb",
+  note: "",
   color: "",
 };
 

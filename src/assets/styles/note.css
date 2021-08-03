@@ -7,6 +7,7 @@
 }
 
 .note {
+  position: relative;
   background-color: rgb(253, 253, 182);
   border-radius: 20px;
   width: 250px;
@@ -26,4 +27,27 @@
 
   overflow: auto;
   /* overflow: auto - remove the scrollbar but still put them back when needed */
+}
+
+#button-delete {
+  display: none;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  color: #ffffff;
+  border: none;
+  background-color: #000000;
+  width: 40px;
+  height: 40px;
+  line-height: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+ion-icon {
+  font-size: 20px;
+}
+
+.note:hover #button-delete {
+  display: block;
 }

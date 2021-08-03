@@ -1,34 +1,19 @@
 {
   "noteData": [
     {
-      "note": "This is a note",
-      "color": "yellow",
-      "id": 1
+      "note": "This is first note",
+      "color": "#BE9DFE",
+      "id": 22
     },
     {
-      "note": "This is a second note",
-      "color": "yellow",
-      "id": 2
+      "note": "And this is second",
+      "color": "#FDA57F",
+      "id": 23
     },
     {
-      "note": "Third one!",
-      "color": "yellow",
-      "id": 3
-    },
-    {
-      "note": "Just write",
-      "color": "yellow",
-      "id": 4
-    },
-    {
-      "note": "Beautiful day",
-      "color": "yellow",
-      "id": 5
-    },
-    {
-      "note": "As long as the sun goes down",
-      "color": "yellow",
-      "id": 6
+      "note": "OMG! I can't believe it...",
+      "color": "#E7F09B",
+      "id": 24
     }
   ]
 }
