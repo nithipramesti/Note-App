@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import ReduxThunk from "redux-thunk";
-import rootReducer from "./redux/reducers";
-
 import "./assets/styles/app.css";
 import Note from "./components/Note";
-
-const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 function App() {
   const [noteState, setNoteState] = useState([]);
@@ -75,22 +67,20 @@ function App() {
   }, []);
 
   return (
-    <Provider store={store}>
-      <div className="app">
-        <h1>Notes</h1>
-        <div className="add-container">
-          <button id="button-add" onClick={showColorNote}>
-            +
-          </button>
-          <div className="note-color-container">
-            {showColor ? renderAddNoteColor() : null}
-          </div>
-        </div>
-        <div className="notes-container">
-          {noteState.length ? renderNotes() : <p>Loading...</p>}
+    <div className="app">
+      <h1>Notes</h1>
+      <div className="add-container">
+        <button id="button-add" onClick={showColorNote}>
+          +
+        </button>
+        <div className="note-color-container">
+          {showColor ? renderAddNoteColor() : null}
         </div>
       </div>
-    </Provider>
+      <div className="notes-container">
+        {noteState.length ? renderNotes() : <p>Loading...</p>}
+      </div>
+    </div>
   );
 }
 

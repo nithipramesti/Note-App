@@ -1,7 +1,7 @@
 {
   "noteData": [
     {
-      "note": "This is first note",
+      "note": "This is t",
       "color": "#BE9DFE",
       "id": 22
     },
@@ -11,9 +11,19 @@
       "id": 23
     },
     {
-      "note": "OMG! I can't believe it...",
+      "note": "“If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.”",
       "color": "#E7F09B",
       "id": 24
+    },
+    {
+      "note": "This is a new note",
+      "color": "#FDA57F",
+      "id": 25
+    },
+    {
+      "note": "",
+      "color": "#FDD082",
+      "id": 26
     }
   ]
 }
